@@ -169,12 +169,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Убедитесь, что пути к изображениям правильные и файлы существуют
     const photos = [
-        'img/photo1.jpg',
-        'img/photo2.jpg',
-        'img/photo3.jpg',
-        'img/photo4.jpg',
-        'img/photo5.jpg',
-    ];
+    'https://awake888.github.io/Berserc.github.io/img/photo1.jpg',
+    'https://awake888.github.io/Berserc.github.io/img/photo2.jpg',
+    'https://awake888.github.io/Berserc.github.io/img/photo3.jpg',
+    'https://awake888.github.io/Berserc.github.io/img/photo4.jpg',
+    'https://awake888.github.io/Berserc.github.io/img/photo5.jpg',
+  // ... остальные фото
+];
     
     let currentSlide = 0;
     
