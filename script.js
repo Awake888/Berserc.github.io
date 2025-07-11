@@ -167,23 +167,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
     
-    // Замените эти пути на свои фотографии
+    // Убедитесь, что пути к изображениям правильные и файлы существуют
     const photos = [
-    './img/photo1.jpg',
-    './img/photo2.jpg',
-    './img/photo3.jpg',
-    './img/photo4.jpg',
-    './img/photo5.jpg'
-];
+        '/ipg/photo1.jpg',
+        '/ipg/photo2.jpg',
+        '/ipg/photo3.jpg',
+        '/ipg/photo4.jpg',
+        '/ipg/photo5.jpg'
+    ];
     
     let currentSlide = 0;
+    
+    // Проверяем, есть ли фотографии для загрузки
+    if (photos.length === 0) {
+        console.error('Нет фотографий для загрузки. Проверьте пути к изображениям.');
+        return;
+    }
     
     // Создаем слайды
     photos.forEach((photo, index) => {
         // Добавляем слайд
         const slide = document.createElement('div');
         slide.className = 'slider-item';
-        slide.innerHTML = `<img src="${photo}" alt="Фото клуба ${index + 1}">`;
+        slide.innerHTML = `<img src="${photo}" alt="Фото клуба ${index + 1}" onerror="this.style.display='none'">`;
         sliderTrack.appendChild(slide);
         
         // Добавляем точку
