@@ -1,12 +1,12 @@
 :root {
-    --primary: #191970; /* Темно-синий вместо красного */
-    --primary-dark: #000080; /* Более темный синий */
-    --secondary: #00bfff; /* Акцентный голубой */
+    --primary: #191970;
+    --primary-dark: #000080;
+    --secondary: #00bfff;
     --dark: #0a0a0a;
     --dark-light: #1a1a1a;
     --gray: #333;
     --light: #f8f8f8;
-    --neon-glow: 0 0 10px rgba(25, 25, 112, 0.8); /* Неоновое свечение синего */
+    --neon-glow: 0 0 10px rgba(25, 25, 112, 0.8);
 }
 
 * {
@@ -447,67 +447,65 @@ nav ul li a:hover::after {
 
 .price-table-container {
     overflow-x: auto;
+    max-width: 100%;
 }
 
 .price-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 30px;
+    margin: 30px auto 0;
     background: var(--dark-light);
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    color: white !important; /* Белый цвет для всего текста в таблице */
+    color: white;
 }
 
-.price-table th, .price-table td {
+.price-table th, 
+.price-table td {
     padding: 15px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
 }
 
 .price-table th {
-    background: rgba(10, 10, 10, 0.9) !important;
-    color: white !important;
+    background: rgba(10, 10, 10, 0.95);
+    color: white;
     font-family: 'Orbitron', sans-serif;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+    font-size: 0.95rem;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    padding: 15px;
     font-weight: 700;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.price-table tr.highlight {
-    background: rgba(25, 25, 112, 0.3) !important;
-    font-weight: 700;
-}
-
-
-.price-table tr:hover {
-    background: rgba(25, 25, 112, 0.2) !important;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
 }
 
 .price-table td {
-    color: white !important;
-    padding: 15px;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
     font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.price-table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    color: white;
+}
+
+.price-table tr.highlight {
+    background: rgba(25, 25, 112, 0.25);
+}
+
+.price-table tr:hover {
+    background: rgba(25, 25, 112, 0.15);
 }
 
 .price-table small {
     display: block;
     font-size: 0.7rem;
-    opacity: 0.8;
+    opacity: 0.85;
     margin-top: 5px;
+    color: white;
     font-weight: normal;
-    color: white !important;
-}
-
-.highlight {
-    background: rgba(10, 0, 153) !important;
-    font-weight: 700;
 }
 
 /* Contact Section */
@@ -739,6 +737,17 @@ footer {
     .slider-item {
         height: 400px;
     }
+
+    /* Адаптация таблицы */
+    .price-table th, 
+    .price-table td {
+        padding: 12px 8px;
+        font-size: 0.85rem;
+    }
+    
+    .price-table small {
+        font-size: 0.65rem;
+    }
 }
 
 @media (max-width: 576px) {
@@ -762,5 +771,18 @@ footer {
         width: 40px;
         height: 40px;
         font-size: 16px;
+    }
+
+    /* Адаптация таблицы для мобильных */
+    .price-table th, 
+    .price-table td {
+        padding: 10px 6px;
+        font-size: 0.8rem;
+    }
+    
+    .price-table-container {
+        margin-left: -20px;
+        margin-right: -20px;
+        width: calc(100% + 40px);
     }
 }
