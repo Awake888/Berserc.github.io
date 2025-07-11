@@ -54,7 +54,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Initialize Particles.js
+// Initialize Particles.js with dark blue colors
 document.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById('particles-js')) {
         particlesJS('particles-js', {
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 },
                 "color": {
-                    "value": "#ff1a1a"
+                    "value": "#191970" // Dark blue particles
                 },
                 "shape": {
                     "type": "circle",
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "line_linked": {
                     "enable": true,
                     "distance": 150,
-                    "color": "#ff1a1a",
+                    "color": "#191970", // Dark blue connecting lines
                     "opacity": 0.4,
                     "width": 1
                 },
@@ -167,32 +167,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
     
-    // Убедитесь, что пути к изображениям правильные и файлы существуют
-   const photos = [
-  'https://awake888.github.io/Berserc.github.io/img/photo1.jpg',
-  'https://awake888.github.io/Berserc.github.io/img/photo2.jpg',
-  'https://awake888.github.io/Berserc.github.io/img/photo3.jpg',
-  'https://awake888.github.io/Berserc.github.io/img/photo4.jpg',
-  'https://awake888.github.io/Berserc.github.io/img/photo5.jpg'
-];
+    const photos = [
+        'https://awake888.github.io/Berserc.github.io/img/photo1.jpg',
+        'https://awake888.github.io/Berserc.github.io/img/photo2.jpg',
+        'https://awake888.github.io/Berserc.github.io/img/photo3.jpg',
+        'https://awake888.github.io/Berserc.github.io/img/photo4.jpg',
+        'https://awake888.github.io/Berserc.github.io/img/photo5.jpg'
+    ];
     
     let currentSlide = 0;
     
-    // Проверяем, есть ли фотографии для загрузки
     if (photos.length === 0) {
-        console.error('Нет фотографий для загрузки. Проверьте пути к изображениям.');
+        console.error('No photos to load. Please check image paths.');
         return;
     }
     
-    // Создаем слайды
+    // Create slides
     photos.forEach((photo, index) => {
-        // Добавляем слайд
+        // Add slide
         const slide = document.createElement('div');
         slide.className = 'slider-item';
-        slide.innerHTML = `<img src="${photo}" alt="Фото клуба ${index + 1}" onerror="this.style.display='none'">`;
+        slide.innerHTML = `<img src="${photo}" alt="Club photo ${index + 1}" onerror="this.style.display='none'">`;
         sliderTrack.appendChild(slide);
         
-        // Добавляем точку
+        // Add dot
         const dot = document.createElement('div');
         dot.className = 'dot';
         if (index === 0) dot.classList.add('active');
@@ -203,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const updateSlider = () => {
         sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
         
-        // Обновляем активную точку
+        // Update active dot
         document.querySelectorAll('.dot').forEach((dot, index) => {
             dot.classList.toggle('active', index === currentSlide);
         });
@@ -224,14 +222,14 @@ document.addEventListener('DOMContentLoaded', function() {
         updateSlider();
     };
     
-    // Назначаем обработчики
+    // Assign handlers
     nextBtn.addEventListener('click', nextSlide);
     prevBtn.addEventListener('click', prevSlide);
     
-    // Автоперелистывание (каждые 5 секунд)
+    // Auto-sliding (every 5 seconds)
     let slideInterval = setInterval(nextSlide, 5000);
     
-    // Останавливаем при наведении
+    // Pause on hover
     sliderTrack.addEventListener('mouseenter', () => {
         clearInterval(slideInterval);
     });
