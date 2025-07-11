@@ -1,1 +1,19 @@
 
+{
+  "name": "BERSERK Cyber Club",
+  "short_name": "BERSERK",
+  "icons": [
+    {
+      "src": "favicons/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "favicons/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#191970",
+  "background_color": "#0a0a0a"
+}
