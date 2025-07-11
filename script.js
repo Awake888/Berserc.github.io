@@ -169,12 +169,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Замените эти пути на свои фотографии
     const photos = [
-    'Berserc.github.io/img/photo1.jpg.jpg',
-    'Berserc.github.io/img/photo2.jpg.jpg',
-    'Berserc.github.io/img/photo3.jpg.jpg',
-    'Berserc.github.io/img/photo4.jpg.jpg',
-    'Berserc.github.io/img/photo5.jpg.jpg',
-    // добавьте столько фото, сколько нужно
+    './img/photo1.jpg',
+    './img/photo2.jpg',
+    './img/photo3.jpg',
+    './img/photo4.jpg',
+    './img/photo5.jpg'
 ];
     
     let currentSlide = 0;
