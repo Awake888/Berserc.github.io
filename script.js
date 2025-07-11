@@ -169,12 +169,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Замените эти пути на свои фотографии
     const photos = [
-        'images/photo1.jpg',
-        'images/photo2.jpg',
-        'images/photo3.jpg',
-        'images/photo4.jpg',
-        'images/photo5.jpg'
-    ];
+    'images/your_photo1.jpg',
+    'images/your_photo2.jpg',
+    'images/your_photo3.jpg',
+    'images/your_photo4.jpg',
+    'images/your_photo5.jpg',
+    // добавьте столько фото, сколько нужно
+];
     
     let currentSlide = 0;
     
