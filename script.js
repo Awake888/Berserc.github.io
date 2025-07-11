@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
         particlesJS('particles-js', {
             "particles": {
                 "number": {
-                    "value": 80,
+                    "value": 150,
                     "density": {
                         "enable": true,
                         "value_area": 800
@@ -100,8 +100,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     "enable": true,
                     "distance": 150,
                     "color": "#191970", // Dark blue connecting lines
-                    "opacity": 0.4,
-                    "width": 1
+                    "opacity": 0.8,
+                    "width": 2
                 },
                 "move": {
                     "enable": true,
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 "modes": {
                     "grab": {
-                        "distance": 140,
+                        "distance": 230,
                         "line_linked": {
                             "opacity": 1
                         }
