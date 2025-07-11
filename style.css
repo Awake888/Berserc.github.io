@@ -457,6 +457,7 @@ nav ul li a:hover::after {
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    color: white !important; /* Белый цвет для всего текста в таблице */
 }
 
 .price-table th, .price-table td {
@@ -466,33 +467,42 @@ nav ul li a:hover::after {
 }
 
 .price-table th {
-    background: rgba(10, 0, 153);
-    color: var(--primary);
+    background: rgba(10, 10, 10, 0.9) !important;
+    color: white !important;
     font-family: 'Orbitron', sans-serif;
     font-size: 0.9rem;
     letter-spacing: 1px;
     text-transform: uppercase;
+    padding: 15px;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.price-table tr:nth-child(even) {
-    background: rgba(30, 30, 30, 0.5);
+.price-table tr.highlight {
+    background: rgba(25, 25, 112, 0.3) !important;
+    font-weight: 700;
 }
+
 
 .price-table tr:hover {
-    background: rgba(10, 0, 153);
+    background: rgba(25, 25, 112, 0.2) !important;
 }
 
-.price-table td:first-child {
-    text-align: left;
-    font-weight: 700;
+.price-table td {
+    color: white !important;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 500;
 }
 
 .price-table small {
     display: block;
     font-size: 0.7rem;
-    opacity: 0.7;
+    opacity: 0.8;
     margin-top: 5px;
     font-weight: normal;
+    color: white !important;
 }
 
 .highlight {
