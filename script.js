@@ -161,50 +161,80 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Gallery data
-    const galleryGrid = document.querySelector('.gallery-grid');
-    if (galleryGrid) {
-        const galleryPhotos = [
-            {
-                title: "Зал STANDARD",
-                image: "https://example.com/photo1.jpg"
-            },
-            {
-                title: "Зал COMFORT",
-                image: "https://example.com/photo2.jpg"
-            },
-            {
-                title: "Зал PREMIUM",
-                image: "https://example.com/photo3.jpg"
-            },
-            {
-                title: "STREAM ROOM",
-                image: "https://example.com/photo4.jpg"
-            },
-            {
-                title: "Игровая зона",
-                image: "https://example.com/photo5.jpg"
-            },
-            {
-                title: "Ресепшен",
-                image: "https://example.com/photo6.jpg"
-            }
-        ];
+    // Gallery Slider
+    const sliderTrack = document.querySelector('.slider-track');
+    const dotsContainer = document.querySelector('.slider-dots');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    
+    // Замените эти пути на свои фотографии
+    const photos = [
+        'images/photo1.jpg',
+        'images/photo2.jpg',
+        'images/photo3.jpg',
+        'images/photo4.jpg',
+        'images/photo5.jpg'
+    ];
+    
+    let currentSlide = 0;
+    
+    // Создаем слайды
+    photos.forEach((photo, index) => {
+        // Добавляем слайд
+        const slide = document.createElement('div');
+        slide.className = 'slider-item';
+        slide.innerHTML = `<img src="${photo}" alt="Фото клуба ${index + 1}">`;
+        sliderTrack.appendChild(slide);
         
-        galleryPhotos.forEach(photo => {
-            const galleryItem = document.createElement('div');
-            galleryItem.className = 'gallery-item';
-            galleryItem.innerHTML = `
-                <img src="${photo.image}" alt="${photo.title}">
-                <div class="gallery-overlay">
-                    <h3>${photo.title}</h3>
-                </div>
-            `;
-            galleryGrid.appendChild(galleryItem);
+        // Добавляем точку
+        const dot = document.createElement('div');
+        dot.className = 'dot';
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+    
+    const updateSlider = () => {
+        sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+        // Обновляем активную точку
+        document.querySelectorAll('.dot').forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
         });
-    }
+    };
+    
+    const goToSlide = (slideIndex) => {
+        currentSlide = slideIndex;
+        updateSlider();
+    };
+    
+    const nextSlide = () => {
+        currentSlide = (currentSlide + 1) % photos.length;
+        updateSlider();
+    };
+    
+    const prevSlide = () => {
+        currentSlide = (currentSlide - 1 + photos.length) % photos.length;
+        updateSlider();
+    };
+    
+    // Назначаем обработчики
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    
+    // Автоперелистывание (каждые 5 секунд)
+    let slideInterval = setInterval(nextSlide, 5000);
+    
+    // Останавливаем при наведении
+    sliderTrack.addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
+    });
+    
+    sliderTrack.addEventListener('mouseleave', () => {
+        slideInterval = setInterval(nextSlide, 5000);
+    });
 
-    // Price table data (остается без изменений)
+    // Price table data
     const priceTable = document.querySelector('.price-table tbody');
     if (priceTable) {
         const prices = [
