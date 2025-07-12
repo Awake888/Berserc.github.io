@@ -54,6 +54,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Bar Tabs Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    if (tabBtns.length > 0) {
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                this.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    }
+});
+
 // Initialize Particles.js with dark blue colors
 document.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById('particles-js')) {
